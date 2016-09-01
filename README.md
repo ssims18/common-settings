@@ -1,2 +1,2 @@
-# curly-potato
-hello world example
+# Common-Settings
+A misc. colloection of settings for various programs.
