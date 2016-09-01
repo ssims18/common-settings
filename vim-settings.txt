@@ -1,0 +1,16 @@
+" vim custom config
+ 
+ " color scheme settings
+ colorscheme ron
+ set background=dark " account for dark background of terminal
+ 
+ syntax enable     " syntax highlighting
+ " TAB settings
+ set tabstop=4     " number of vial spaces per TAB
+ set softtabstop=4 " number of speces in tab when editing
+ set expandtab     " tabs are spaces
+ 
+ set number        " show line numbers
+ 
+ set showmatch     " highlight matching [{()}]
+ 
