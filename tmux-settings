@@ -1,0 +1,33 @@
+# $ vim ~/.tmux.conf
+# Preferred bind-key 'ctrl + a' (Default: 'ctrl + b')
+set-option -g prefix C-a
+bind-key C-a last-window
+
+# Personal Key Binding Overrides
+# Help: ctrl + a ?
+
+# Reload Config 'ctrl + a then r' (Default: unassigned)
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..." 
+
+# Set the History to 100,000 Lines. Allows scrolling back using ctrl + a then [
+set-option -g history-limit 100000
+
+# Preferred bind-key 'ctrl + a' (Default: 'ctrl + b')
+set-option -g prefix C-a
+bind-key C-a last-window
+unbind C-b
+
+# Split Window Vertically 'ctrl + a then v' (Default: C-a ")
+bind-key v split-window -h
+# Split Window Horizontally 'ctrl + a then s' (Default: C-a %)
+bind-key s split-window -v 
+
+# Move to Left Pane  'ctrl + a then h' (Default: tbd) [Mimic VIM Movement]
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+
+# change the fall back to ASCII drawing to handle line drawing for borders
+set-option -ga terminal-overrides ',*:enacs@:smacs@:rmacs@:acsc@'
