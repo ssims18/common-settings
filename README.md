@@ -1,2 +1,2 @@
 # Common-Settings
-A misc. colloection of settings for various programs.
+A misc. collection of settings for various programs.
