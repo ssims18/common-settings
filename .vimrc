@@ -63,7 +63,7 @@ map <Leader>cw :%s/[ <tab>]*$//<CR>:retab!<CR>:noh<CR>
 :imap <F1> <C-o>:echo<CR>
 
 " PHP settings
-autocmd FileType php set tabstop=4|set shiftwidth=4
+autocmd FileType php set tabstop=2|set shiftwidth=2
 autocmd FileType php set commentstring=//\ %s
 
 " GitHub flavored markdown via vim-flavored-markdown
