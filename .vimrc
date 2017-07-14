@@ -23,6 +23,7 @@ syntax enable
 colorscheme lucius
 LuciusBlack
 set background=dark " account for dark background of terminal
+" set t_Co=256 " force 256 colors in terminal
 
 " set font/size
 if has("gui_running")
