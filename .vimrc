@@ -7,7 +7,7 @@ syntax enable
 "call plug#begin()
 "Colorscheme
 "Plug 'altercation/vim-colors-solarized'
-"Plug 'jonathanfilip/lucius'
+"Plug 'jonathanfilip/vim-lucius'
 
 "file navigation
 "Plug 'scrooloose/nerdtree'
