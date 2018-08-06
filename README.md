@@ -1,5 +1,5 @@
 # Common-Settings
-A misc. collection of settings for various programs.
+Settings for vim and tmux.
 
 #### Setup:
 Download and link config files. 
