@@ -1,22 +1,22 @@
 " vim custom config
  
-execute pathogen#infect()
+"execute pathogen#infect()
 filetype plugin indent on 
 syntax enable
 
-"call plug#begin()
+call plug#begin('~/.vim/plugged')
 "Colorscheme
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'jonathanfilip/vim-lucius'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jonathanfilip/vim-lucius'
 
 "file navigation
-"Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
-"Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-commentary'
-"Plug 'vim-scripts/HTML-AutoCloseTag'
-"Plug 'jtratner/vim-flavored-markdown'
-"call plug#end()
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/HTML-AutoCloseTag'
+Plug 'jtratner/vim-flavored-markdown'
+call plug#end()
 
 " color scheme settings
 "colorscheme ron
