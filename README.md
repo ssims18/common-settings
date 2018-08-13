@@ -20,3 +20,11 @@ Reload vim and install plugins
 ```
 :PlugInstall
 ```
+
+Bash aliases - add to .bashrc
+```
+ # Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+```
