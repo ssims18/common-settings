@@ -2,7 +2,6 @@
  
 "execute pathogen#infect()
 filetype plugin indent on 
-syntax enable
 
 call plug#begin('~/.vim/plugged')
 "Colorscheme
@@ -12,9 +11,12 @@ Plug 'jonathanfilip/vim-lucius'
 "file navigation
 Plug 'scrooloose/nerdtree'
 
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'vim-scripts/HTML-AutoCloseTag'
+" Plug 'vim-scripts/HTML-AutoCloseTag'
 Plug 'jtratner/vim-flavored-markdown'
 call plug#end()
 
@@ -23,7 +25,6 @@ call plug#end()
 colorscheme lucius
 LuciusBlack
 set background=dark " account for dark background of terminal
-" set t_Co=256 " force 256 colors in terminal
 
 " set font/size
 if has("gui_running")
@@ -35,6 +36,26 @@ if has("gui_running")
     set guifont=Consolas:h14:cANSI:qDRAFT
   endif
 endif
+
+" force 256 colors in terminal
+if !has("gui_running")
+  set t_Co=256
+endif
+
+" show status line 
+set laststatus=2
+
+" lightline config
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'gitbranch' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 " syntax highlighting
 syntax enable
@@ -78,3 +99,4 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Ctrl+n to open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
+
