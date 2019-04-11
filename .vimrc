@@ -18,18 +18,22 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Plug 'vim-scripts/HTML-AutoCloseTag'
 Plug 'jtratner/vim-flavored-markdown'
+
+" EditorConfig
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " color scheme settings
-"colorscheme ron
+" colorscheme ron
 colorscheme lucius
 LuciusBlack
+" colorscheme solarized
 set background=dark " account for dark background of terminal
 
 " set font/size
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+    set guifont=Inconsolata\ 14
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
@@ -72,7 +76,6 @@ set number
 " highlight matching [{()}]
 set showmatch
 
-
 " Disable backup and swap files because they cause more problems than they solve
 set nobackup
 set noswapfile
@@ -94,9 +97,17 @@ augroup markdown
   au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-"nert tree stuff
+" Nerd Tree stuff
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Nerd Tree window size
+let g:NERDTreeWinSize=60
 
 " Ctrl+n to open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
 
+" EditorConfig options
+" Avoid loading EditorConfig for remote files over ssh
+let g:EditorConfig_exclude_patterns = ['scp://.*']
+" Override project specific editor cofig rules
+" let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
