@@ -21,6 +21,8 @@ Plug 'jtratner/vim-flavored-markdown'
 
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
+" Git Gutter
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " color scheme settings
@@ -75,6 +77,7 @@ set expandtab
 set number
 " highlight matching [{()}]
 set showmatch
+" set ruler
 
 " Disable backup and swap files because they cause more problems than they solve
 set nobackup
@@ -111,3 +114,4 @@ map <C-n> :NERDTreeToggle<CR>
 let g:EditorConfig_exclude_patterns = ['scp://.*']
 " Override project specific editor cofig rules
 " let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+
