@@ -1,5 +1,5 @@
 " vim custom config
- 
+
 "execute pathogen#infect()
 filetype plugin indent on 
 
@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 "Colorscheme
 Plug 'altercation/vim-colors-solarized'
 Plug 'jonathanfilip/vim-lucius'
+Plug 'jnurmine/Zenburn'
 
 "file navigation
 Plug 'scrooloose/nerdtree'
@@ -14,6 +15,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 
+" Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Plug 'vim-scripts/HTML-AutoCloseTag'
@@ -23,12 +25,15 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'editorconfig/editorconfig-vim'
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
+" Git Integration
+" Plugin 'tpope/vim-fugitive'
 call plug#end()
 
 " color scheme settings
 " colorscheme ron
-colorscheme lucius
-LuciusBlack
+colorscheme zenburn
+" colorscheme lucius
+" LuciusBlack
 " colorscheme solarized
 set background=dark " account for dark background of terminal
 
@@ -83,6 +88,9 @@ set showmatch
 set nobackup
 set noswapfile
 
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
 " Clean whitespace in a file (coverts tabs to spaces and deletes any trailing whitespace)
 map <Leader>cw :%s/[ <tab>]*$//<CR>:retab!<CR>:noh<CR>
 
@@ -94,10 +102,19 @@ map <Leader>cw :%s/[ <tab>]*$//<CR>:retab!<CR>:noh<CR>
 autocmd FileType php set tabstop=2|set shiftwidth=2
 autocmd FileType php set commentstring=//\ %s
 
+" JS settings
+augroup js, css
+        au!
+        au BufNewFile,BufRead *.js,*.css setlocal tabstop=2
+        au BufNewFile,BufRead *.js,*.css setlocal softtabstop=2
+        au BufNewFile,BufRead *.js,*.css setlocal shiftwidth=2
+augroup END
+
 " GitHub flavored markdown via vim-flavored-markdown
 augroup markdown
   au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown textwidth=100
+" au BufRead,BufNewFile *.md setlocal textwidth=100
 augroup END
 
 " Nerd Tree stuff
