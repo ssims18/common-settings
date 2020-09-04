@@ -43,6 +43,7 @@ if has("gui_running")
     set guifont=Inconsolata\ 14
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
+    " set guifont=Source\ Code\ Pro:h14
   elseif has("gui_win32")
     set guifont=Consolas:h14:cANSI:qDRAFT
   endif
@@ -53,7 +54,7 @@ if !has("gui_running")
   set t_Co=256
 endif
 
-" show status line 
+" show status line
 set laststatus=2
 
 " lightline config
@@ -103,11 +104,11 @@ autocmd FileType php set tabstop=2|set shiftwidth=2
 autocmd FileType php set commentstring=//\ %s
 
 " JS settings
-augroup js, css
+augroup js, css, html
         au!
-        au BufNewFile,BufRead *.js,*.css setlocal tabstop=2
-        au BufNewFile,BufRead *.js,*.css setlocal softtabstop=2
-        au BufNewFile,BufRead *.js,*.css setlocal shiftwidth=2
+        au BufNewFile,BufRead *.js,*.css,*.html,*.htm setlocal tabstop=2
+        au BufNewFile,BufRead *.js,*.css,*.html,*.htm setlocal softtabstop=2
+        au BufNewFile,BufRead *.js,*.css,*.html,*.htm setlocal shiftwidth=2
 augroup END
 
 " GitHub flavored markdown via vim-flavored-markdown
@@ -117,8 +118,13 @@ augroup markdown
 " au BufRead,BufNewFile *.md setlocal textwidth=100
 augroup END
 
+autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 expandtab
+
 " Nerd Tree stuff
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
 " Nerd Tree window size
 let g:NERDTreeWinSize=60
